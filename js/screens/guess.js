@@ -59,10 +59,21 @@
 
           if (c.cierre) {
             setTimeout(function () {
-              slot.innerHTML = html`<p class="guess__cierre anim">${c.cierre}</p>`;
+              slot.innerHTML = html`
+                <p class="guess__cierre anim">${c.cierre}</p>
+                <button class="btn btn--primary anim anim--scale d3"
+                        id="guess-revelar" type="button">${c.botonRevelar || 'Ver segundo regalo'}</button>
+              `;
               BX.audio.sfx('paso');
-              BX.fx.asegurarVisible(dom.qs('.guess__cierre', slot));
-              setTimeout(function () { BX.router.ir('verdad'); }, 2600);
+              BX.fx.asegurarVisible(dom.qs('#guess-revelar', slot));
+
+              dom.qs('#guess-revelar', slot).addEventListener('click', function () {
+                // Hace todo el gesto de una revelación, y después no revela nada.
+                BX.audio.sfx('descorche');
+                BX.fx.flash();
+                BX.fx.vibrar(20);
+                BX.router.ir('verdad');
+              });
             }, 1000);
           } else {
             setTimeout(function () { BX.router.ir('verdad'); }, 1200);

@@ -218,8 +218,9 @@ window.EXPERIENCIA_CONFIG = {
       }
     ],
 
-    // Lo último que ve antes del vuelto final.
+    // Lo último que ve antes de destapar la sorpresa.
     cierre: "Ya tenés todas las pistas necesarias para darte cuenta.",
+    botonRevelar: "Ver segundo regalo",
 
     boton: "Terminar"
   },
@@ -228,14 +229,15 @@ window.EXPERIENCIA_CONFIG = {
      Lo que ve después de los tres juegos.
      ----------------------------------------------------------------------- */
   verdad: {
-    kicker: "Una última cosa",
+    // Hace eco del "Primer regalo desbloqueado", y después no hay nada.
+    kicker: "Segundo regalo desbloqueado",
     lineas: [
-      "Nada de lo que acabás de adivinar es verdad.",
+      "Nada de lo que acabás de ver y adivinar es verdad.",
       "Ni una sola.",
       "No adivinaste absolutamente nada."
     ],
     listaTitulo: "Lo que dijiste",
-    cierre: "El 26 te enterás.",
+    cierre: "Esperá hasta el 26 para saber…",
     boton: "Me rindo"
   },
 
