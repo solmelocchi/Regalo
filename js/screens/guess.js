@@ -56,7 +56,17 @@
         indice++;
         if (indice >= total) {
           BX.state.set({ dijo: dichas });
-          setTimeout(function () { BX.router.ir('verdad'); }, 1200);
+
+          if (c.cierre) {
+            setTimeout(function () {
+              slot.innerHTML = html`<p class="guess__cierre anim">${c.cierre}</p>`;
+              BX.audio.sfx('paso');
+              BX.fx.asegurarVisible(dom.qs('.guess__cierre', slot));
+              setTimeout(function () { BX.router.ir('verdad'); }, 2600);
+            }, 1000);
+          } else {
+            setTimeout(function () { BX.router.ir('verdad'); }, 1200);
+          }
         } else {
           var actual = dom.qs('.guess', slot);
           if (actual) actual.classList.add('is-leaving');
@@ -212,11 +222,13 @@
                   </div>`;
               }).join(''))}
             </div>
+            <p class="vf__pendiente" id="guess-pendiente">${j.instruccion || 'Respondé las tres.'}</p>
             <div class="feedback" id="guess-feedback"></div>
           </div>
         `;
 
         var cont = dom.qs('#guess-vf', slot);
+        var pendiente = dom.qs('#guess-pendiente', slot);
         var fb = dom.qs('#guess-feedback', slot);
 
         cont.addEventListener('click', function (ev) {
@@ -241,6 +253,13 @@
           BX.fx.vibrar(12);
 
           respondidas++;
+
+          var faltan = afirmaciones.length - respondidas;
+          var EN_LETRAS = ['', 'una', 'dos', 'tres', 'cuatro', 'cinco'];
+          if (faltan === 1) pendiente.textContent = 'Te falta una.';
+          else if (faltan > 1) pendiente.textContent = 'Te faltan ' + (EN_LETRAS[faltan] || faltan) + '.';
+          else pendiente.hidden = true;
+
           if (respondidas >= afirmaciones.length) {
             fb.setAttribute('data-tone', 'ok');
             fb.innerHTML = html`

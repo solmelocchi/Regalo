@@ -930,6 +930,15 @@
 .vf__btn[data-state="muted"]{opacity:.22}
 .vf__row[data-settled="true"] .vf__btn{pointer-events:none}
 
+.vf__pendiente{
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:var(--track-wide);
+  color:var(--text-faint);
+  text-align:center;
+  transition:color var(--dur-fast) linear;
+}
+
 /* ---------------------------------------------------------------- toast --- */
 .toast{
   position:fixed;

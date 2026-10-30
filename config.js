@@ -213,9 +213,13 @@ window.EXPERIENCIA_CONFIG = {
           { texto: "Con llevar poca ropa alcanza", respuesta: true }
         ],
         acierto: "Tres de tres.",
-        cierre: "Impresionante."
+        cierre: "Impresionante.",
+        instruccion: "Respondé las tres."
       }
     ],
+
+    // Lo último que ve antes del vuelto final.
+    cierre: "Ya tenés todas las pistas necesarias para darte cuenta.",
 
     boton: "Terminar"
   },
