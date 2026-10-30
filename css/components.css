@@ -793,6 +793,141 @@
   color:var(--text-faint);
 }
 
+/* Lo que dijo, devuelto y tachado. */
+.leak--tachado{background:rgba(217,138,123,.035);border-color:rgba(217,138,123,.18)}
+.leak--tachado::before{background:var(--no);opacity:.55}
+.leak--tachado .leak__dato{
+  color:var(--text-faint);
+  text-decoration:line-through;
+  text-decoration-color:rgba(217,138,123,.75);
+  text-decoration-thickness:1px;
+}
+
+/* ------------------------------------------------- cartas dadas vuelta --- */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.65rem;
+  width:100%;
+  max-width:420px;
+  margin-inline:auto;
+}
+.card{
+  position:relative;
+  aspect-ratio:1/.76;
+  perspective:800px;
+  background:none;
+  border:0;
+  padding:0;
+}
+.card__face{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:.7rem;
+  border-radius:var(--radius-m);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transition:transform .62s var(--ease-in-out),border-color var(--dur-fast),box-shadow var(--dur-fast);
+}
+.card__face--back{
+  background:linear-gradient(150deg,rgba(90,15,36,.55),rgba(11,8,15,.95));
+  border:1px solid var(--acc-line);
+  box-shadow:var(--shadow-soft);
+  transform:rotateY(0deg);
+}
+.card__face--front{
+  font-family:var(--font-display);
+  font-size:1.06rem;
+  line-height:1.3;
+  text-align:center;
+  color:var(--text);
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(239,230,218,.1);
+  transform:rotateY(180deg);
+}
+.card__mark{
+  font-family:var(--font-display);
+  font-size:1.6rem;
+  color:var(--acc-300);
+  opacity:.7;
+}
+.card:hover .card__face--back{border-color:var(--acc-400);box-shadow:0 14px 40px -22px var(--acc-glow)}
+.card:active{transform:scale(.97)}
+
+.card[data-flipped="true"] .card__face--back{transform:rotateY(-180deg)}
+.card[data-flipped="true"] .card__face--front{transform:rotateY(0deg)}
+
+.card[data-state="correct"] .card__face--front{
+  color:var(--ok);
+  border-color:rgba(185,212,168,.5);
+  background:rgba(185,212,168,.07);
+  box-shadow:0 0 0 1px rgba(185,212,168,.18);
+}
+.card[data-state="wrong"] .card__face--front{
+  color:var(--no);
+  border-color:rgba(217,138,123,.42);
+  background:rgba(217,138,123,.05);
+}
+.card[data-state="muted"] .card__face--front{opacity:.32}
+.cards[data-settled="true"] .card{pointer-events:none}
+
+/* ---------------------------------------------------- verdadero o falso --- */
+.vf{
+  display:grid;
+  gap:.5rem;
+  width:100%;
+  max-width:420px;
+  margin-inline:auto;
+}
+.vf__row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:.9rem;
+  padding:.78rem .5rem .78rem 1rem;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(239,230,218,.08);
+  border-radius:var(--radius-m);
+  text-align:left;
+}
+.vf__texto{
+  font-family:var(--font-display);
+  font-size:1.06rem;
+  line-height:1.32;
+  color:var(--text);
+}
+.vf__botones{display:flex;gap:.35rem}
+.vf__btn{
+  display:grid;
+  place-items:center;
+  width:38px;height:38px;
+  font-family:var(--font-ui);
+  font-size:.8rem;
+  font-weight:500;
+  letter-spacing:.06em;
+  color:var(--acc-200);
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(239,230,218,.12);
+  border-radius:50%;
+  transition:all var(--dur-fast) var(--ease-out);
+}
+.vf__btn:hover{border-color:var(--acc-300);background:var(--acc-soft)}
+.vf__btn:active{transform:scale(.92)}
+.vf__btn[data-state="correct"]{
+  color:var(--ink-900);
+  background:var(--ok);
+  border-color:var(--ok);
+}
+.vf__btn[data-state="wrong"]{
+  color:var(--no);
+  border-color:rgba(217,138,123,.5);
+  background:rgba(217,138,123,.08);
+}
+.vf__btn[data-state="muted"]{opacity:.22}
+.vf__row[data-settled="true"] .vf__btn{pointer-events:none}
+
 /* ---------------------------------------------------------------- toast --- */
 .toast{
   position:fixed;

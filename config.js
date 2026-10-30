@@ -155,19 +155,78 @@ window.EXPERIENCIA_CONFIG = {
       "Simplemente confiá en mí."
     ],
 
-    /* --- LO QUE SÍ SE ADELANTA -------------------------------------------
-       Tres fichas que aparecen después de la caja.
-       Editá cada línea, o borrala del array si no la querés.
-       --------------------------------------------------------------------- */
-    adelantosTitulo: "Lo único que te puedo adelantar",
-    adelantos: [
-      { dato: "Son dos días",       detalle: "Ni uno más." },
-      { dato: "Vamos los dos solos", detalle: "Sin nadie más en el medio." },
-      { dato: "Empieza un sábado",  detalle: "Y el domingo ya estamos de vuelta." }
+    cierre: "Tu próxima aventura está más cerca de lo que pensás.",
+    boton: "Dejame adivinar igual"
+  },
+
+  /* --- LOS TRES INTENTOS -------------------------------------------------
+     Tres juegos distintos donde tiene que adivinar qué vamos a hacer.
+     En cada uno, "correcta" es el índice (empezando en 0) de la opción que
+     el juego va a dar por buena.
+     ----------------------------------------------------------------------- */
+  adivinanza: {
+    titulo: "Dale, adiviná",
+    intro: "Tres intentos. Después no preguntás más.",
+
+    juegos: [
+      {
+        tipo: "opciones",
+        etiqueta: "Primer intento",
+        pregunta: "¿Con qué arranca?",
+        opciones: [
+          "Una cena en un restaurante",
+          "Una noche tranquila en casa",
+          "Un recital",
+          "Un asado con amigos"
+        ],
+        correcta: 0,
+        acierto: "Correcto.",
+        error: "No. Era esta otra."
+      },
+      {
+        tipo: "cartas",
+        etiqueta: "Segundo intento",
+        pregunta: "¿Y dónde dormimos?",
+        cartas: [
+          "En Potrerillos",
+          "Acá nomás",
+          "Un hotel en el centro",
+          "Una cabaña en la montaña"
+        ],
+        correcta: 0,
+        acierto: "Correcto otra vez. Me estás asustando.",
+        error: "Frío. Era esta."
+      },
+      {
+        tipo: "verdadero_falso",
+        etiqueta: "Tercer intento",
+        pregunta: "Última. Verdadero o falso.",
+        afirmaciones: [
+          { texto: "Vamos en auto",            respuesta: true },
+          { texto: "Hay que madrugar",         respuesta: false },
+          { texto: "Con llevar poca ropa alcanza", respuesta: true }
+        ],
+        acierto: "Tres de tres.",
+        cierre: "Impresionante."
+      }
     ],
 
-    cierre: "Tu próxima aventura está más cerca de lo que pensás.",
-    boton: "Entendido"
+    boton: "Terminar"
+  },
+
+  /* --- EL VUELTO ---------------------------------------------------------
+     Lo que ve después de los tres juegos.
+     ----------------------------------------------------------------------- */
+  verdad: {
+    kicker: "Una última cosa",
+    lineas: [
+      "Nada de lo que acabás de adivinar es verdad.",
+      "Ni una sola.",
+      "No adivinaste absolutamente nada."
+    ],
+    listaTitulo: "Lo que dijiste",
+    cierre: "El 26 te enterás.",
+    boton: "Me rindo"
   },
 
   /* --- PANTALLA FINAL ---------------------------------------------------- */

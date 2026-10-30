@@ -70,9 +70,6 @@
           <hr class="rule">
           <div class="rules" id="vault-rules"></div>
 
-          <p class="label" id="vault-adelantos-titulo"></p>
-          <div class="leaks" id="vault-adelantos"></div>
-
           <p class="vault__cierre acc-text" id="vault-cierre"></p>
           <button class="btn btn--primary" id="vault-next" type="button">${c.boton}</button>
         </div>
@@ -101,24 +98,6 @@
             </div>`;
         }).join('');
 
-        var adelantos = c.adelantos || [];
-        var tituloAdel = dom.qs('#vault-adelantos-titulo', root);
-        var contAdel = dom.qs('#vault-adelantos', root);
-
-        if (adelantos.length) {
-          tituloAdel.textContent = c.adelantosTitulo || '';
-          contAdel.innerHTML = adelantos.map(function (a, i) {
-            return html`
-              <div class="leak anim anim--soft ${raw('d' + (i + 3))}">
-                <span class="leak__dato">${a.dato}</span>
-                ${raw(a.detalle ? '<span class="leak__detalle">' + dom.esc(a.detalle) + '</span>' : '')}
-              </div>`;
-          }).join('');
-        } else {
-          tituloAdel.hidden = true;
-          contAdel.hidden = true;
-        }
-
         dom.qs('#vault-cierre', root).textContent = c.cierre || '';
         after.hidden = false;
         after.classList.add('anim', 'anim--fade', 'd5');
@@ -126,8 +105,7 @@
         BX.fx.asegurarVisible(dom.qs('#vault-rules', root));
 
         dom.qs('#vault-next', root).addEventListener('click', function () {
-          BX.state.set({ boveda: true });
-          BX.router.ir('final');
+          BX.router.ir('adivinanza');
         });
       }
 

@@ -13,7 +13,9 @@ Todo lo editable vive en **`config.js`**. No hace falta tocar nada más.
 | Textos de la pantalla inicial | `intro` |
 | Pistas, opciones y respuestas correctas | `sentidos`, `enigma`, `palabra` |
 | Bodega, fecha, hora, ubicación y foto | `invitacion` |
-| Textos del segundo tramo | `boveda` |
+| Textos de la caja cerrada | `boveda` |
+| Los tres juegos de adivinanza | `adivinanza` |
+| El cierre del segundo tramo | `verdad` |
 | Pantalla final y nota al pie | `final` |
 | Música, efectos, partículas | `ajustes` |
 

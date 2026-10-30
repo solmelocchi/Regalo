@@ -123,6 +123,10 @@
   color:var(--text-faint);
 }
 
+/* los tres intentos */
+.guess{display:grid;gap:1.3rem;width:100%;justify-items:center}
+.guess .clue__text{max-width:26ch}
+
 /* ----------------------------------------------------------------- cierre - */
 .screen--bridge{--screen-max:520px}
 .bridge__trio{
@@ -276,6 +280,13 @@
   /* fichas grandes en dos filas, cómodas para el dedo */
   .word__pool{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:276px;gap:.5rem}
   .word{gap:1.2rem}
+
+  .cards{gap:.5rem}
+  .card__face--front{font-size:.96rem}
+  .vf__row{padding:.7rem .4rem .7rem .85rem;gap:.6rem}
+  .vf__texto{font-size:.98rem}
+  .vf__btn{width:35px;height:35px}
+  .guess{gap:1.1rem}
 
   .leak{padding:.74rem .95rem}
   .leak__dato{font-size:1.1rem}
