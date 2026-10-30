@@ -1,0 +1,312 @@
+/* ===========================================================================
+   PANTALLAS · layout por capítulo
+   =========================================================================== */
+.screen{
+  width:100%;
+  max-width:var(--screen-max,640px);
+  margin-inline:auto;
+  display:grid;
+  gap:clamp(1.5rem,5vw,2.1rem);
+  justify-items:center;
+  text-align:center;
+}
+
+.screen__head{display:grid;gap:.95rem;justify-items:center}
+.screen__body{display:grid;gap:1.15rem;justify-items:center;width:100%}
+
+/* ------------------------------------------------------------------ intro - */
+.screen--intro{--screen-max:620px;gap:clamp(1.9rem,6vw,2.6rem)}
+
+.intro__mark{
+  display:grid;
+  gap:.9rem;
+  justify-items:center;
+}
+.intro__title{
+  font-family:var(--font-display);
+  font-size:clamp(1.75rem,7.4vw,3.05rem);
+  font-weight:300;
+  line-height:1.02;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.intro__title em{
+  display:block;
+  font-size:.52em;
+  font-style:italic;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--acc-400);
+  margin-top:.75rem;
+}
+.intro__lines{display:grid;gap:1rem;max-width:34ch}
+.intro__lines p{
+  font-family:var(--font-display);
+  font-size:var(--t-lead);
+  font-weight:300;
+  line-height:1.5;
+}
+.intro__lines p:first-child{color:var(--text)}
+.intro__lines p:nth-child(2){color:var(--text-dim)}
+.intro__lines p:last-child{color:var(--acc-300);font-style:italic}
+
+.intro__cta{position:relative;display:inline-flex;margin-top:.5rem}
+.intro__foot{
+  display:grid;
+  gap:.4rem;
+  justify-items:center;
+  font-size:.64rem;
+  text-transform:uppercase;
+  letter-spacing:var(--track-wide);
+  color:var(--text-faint);
+}
+
+/* --------------------------------------------------------------- desafíos - */
+.screen--challenge{--screen-max:600px}
+
+.chapter{display:grid;gap:.75rem;justify-items:center}
+.chapter__n{
+  font-family:var(--font-display);
+  font-size:.92rem;
+  font-style:italic;
+  letter-spacing:.24em;
+  color:var(--acc-500);
+  text-transform:uppercase;
+}
+.chapter__title{
+  font-family:var(--font-display);
+  font-size:var(--t-title);
+  font-weight:300;
+  line-height:1.08;
+}
+.chapter__intro{
+  font-size:.95rem;
+  line-height:1.65;
+  color:var(--text-dim);
+  max-width:38ch;
+}
+
+.clue{
+  display:grid;
+  gap:1.35rem;
+  width:100%;
+  text-align:center;
+}
+.clue__sense{
+  display:grid;
+  gap:.7rem;
+  justify-items:center;
+}
+.clue__icon{
+  width:46px;height:46px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--acc-line);
+  border-radius:50%;
+  color:var(--acc-300);
+}
+.clue__icon svg{width:22px;height:22px}
+.clue__text{
+  font-family:var(--font-display);
+  font-size:clamp(1.18rem,4.6vw,1.52rem);
+  font-style:italic;
+  font-weight:300;
+  line-height:1.48;
+  color:var(--acc-100);
+  max-width:28ch;
+  margin-inline:auto;
+}
+.clue__q{
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:var(--track-wide);
+  color:var(--text-faint);
+}
+
+/* ----------------------------------------------------------------- cierre - */
+.screen--bridge{--screen-max:520px}
+.bridge__trio{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.45rem 1.1rem;
+}
+.bridge__trio span{
+  font-family:var(--font-display);
+  font-size:1.14rem;
+  color:var(--acc-200);
+  white-space:nowrap;
+}
+.bridge__trio i{
+  align-self:center;
+  width:4px;height:4px;
+  rotate:45deg;
+  background:var(--acc-500);
+}
+
+/* ------------------------------------------------------------- revelación - */
+.screen--reveal{--screen-max:560px}
+.reveal__kicker{
+  font-family:var(--font-ui);
+  font-size:clamp(.66rem,2.4vw,.78rem);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.44em;
+  color:var(--acc-300);
+}
+.reveal__lines{display:grid;gap:.95rem;max-width:33ch;margin-inline:auto}
+.reveal__lines p{
+  font-family:var(--font-display);
+  font-size:var(--t-lead);
+  font-weight:300;
+  font-style:italic;
+  line-height:1.5;
+}
+.reveal__lines p:last-child{color:var(--acc-200)}
+
+/* ------------------------------------------------------------- invitación - */
+.screen--invite{--screen-max:520px}
+.invite-screen__note{
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:var(--track-wide);
+  color:var(--text-faint);
+}
+
+/* ----------------------------------------------------------------- bóveda - */
+.screen--vault{--screen-max:560px}
+.vault__lines{display:grid;gap:.9rem;max-width:34ch;margin-inline:auto}
+.vault__lines p{
+  font-family:var(--font-display);
+  font-size:var(--t-lead);
+  font-weight:300;
+  line-height:1.5;
+}
+.vault__lines p:first-child{color:var(--text)}
+.vault__lines p:nth-child(2){color:var(--acc-300);font-style:italic}
+.vault__lines p:last-child{font-size:1.02rem;color:var(--text-dim)}
+
+.vault__instruccion{
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:var(--track-wide);
+  color:var(--text-faint);
+}
+.vault__cierre{
+  font-family:var(--font-display);
+  font-size:clamp(1.2rem,4.8vw,1.6rem);
+  font-style:italic;
+  font-weight:300;
+  line-height:1.45;
+  max-width:28ch;
+  margin-inline:auto;
+}
+
+/* ------------------------------------------------------------------ final - */
+.screen--final{--screen-max:560px}
+.final__title{
+  font-family:var(--font-display);
+  font-size:clamp(2.1rem,9vw,3.4rem);
+  font-weight:300;
+  line-height:1.04;
+  letter-spacing:.01em;
+}
+.final__name{
+  display:block;
+  font-size:.46em;
+  font-style:italic;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--acc-300);
+  margin-top:.9rem;
+}
+.final__text{
+  font-family:var(--font-display);
+  font-size:var(--t-lead);
+  font-style:italic;
+  line-height:1.5;
+  color:var(--text-dim);
+  max-width:30ch;
+  margin-inline:auto;
+}
+.final__firma{
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  font-style:italic;
+  color:var(--acc-300);
+}
+
+/* La nota del jueves: tono de pendiente suelto, lejos de la sorpresa. */
+.final__pd{
+  max-width:36ch;
+  margin-inline:auto;
+  padding-top:1.1rem;
+  border-top:1px solid rgba(239,230,218,.08);
+  font-size:.85rem;
+  line-height:1.65;
+  color:var(--text-dim);
+}
+
+/* ------------------------------------------------------------- responsive - */
+/* --- celular: todo el desafío tiene que entrar sin scroll --- */
+@media (max-width:560px){
+  .stage{
+    padding-top:calc(env(safe-area-inset-top,0px) + 4.6rem);
+    padding-bottom:calc(env(safe-area-inset-bottom,0px) + 2rem);
+  }
+  .screen{gap:1.15rem}
+
+  .chapter{gap:.45rem}
+  .chapter__n{font-size:.78rem}
+  .chapter__title{font-size:clamp(1.6rem,6vw,2.1rem)}
+  .chapter__intro{font-size:.88rem;line-height:1.55;max-width:34ch}
+
+  .clue{gap:1rem}
+  .clue__icon{width:40px;height:40px}
+  .clue__icon svg{width:19px;height:19px}
+  .clue__sense{gap:.5rem}
+  .clue__text{font-size:clamp(1.06rem,4.3vw,1.4rem);line-height:1.42}
+
+  .options{gap:.5rem}
+  .option{padding:.82rem 1rem;gap:.8rem}
+  .option__title{font-size:1.04rem}
+  .option__detail{font-size:.76rem}
+  .option__mark{width:23px;height:23px;font-size:.76rem}
+
+  /* fichas grandes en dos filas, cómodas para el dedo */
+  .word__pool{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:276px;gap:.5rem}
+  .word{gap:1.2rem}
+
+  .leak{padding:.74rem .95rem}
+  .leak__dato{font-size:1.1rem}
+
+  .feedback{min-height:2.8rem}
+  .feedback__text{font-size:1rem}
+
+  .hud__brand{display:none}
+  .hud{grid-template-columns:auto 1fr auto;gap:.8rem;padding-top:calc(env(safe-area-inset-top,0px) + .9rem);padding-bottom:.9rem}
+  .hud__center{min-width:0}
+
+  .panel{padding:1.25rem 1.3rem}
+  .quote{font-size:1.08rem;padding-left:1.05rem}
+
+  .invite{padding:1.4rem 1.25rem}
+  .invite__inner{gap:.9rem}
+  .invite__row{padding:.62rem .15rem}
+}
+
+/* pantallas muy bajas: achicamos todavía un poco más */
+@media (max-height:700px) and (max-width:560px){
+  .chapter__intro{display:none}
+  .screen{gap:1rem}
+  .clue__text{font-size:1.02rem}
+}
+
+@media (min-width:760px){
+  .stage{padding-top:calc(env(safe-area-inset-top,0px) + 6.5rem)}
+  .options--duo{grid-template-columns:1fr 1fr}
+}
+
+@media (max-height:620px) and (min-width:600px){
+  .stage{padding-top:calc(env(safe-area-inset-top,0px) + 5rem);align-items:start}
+}
