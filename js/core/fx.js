@@ -137,10 +137,16 @@
   }
 
   /* ----------------------------------------------------------------- vibrar */
+  /* El navegador rechaza vibrar si todavía no hubo un toque de verdad,
+     así que esperamos al primero antes de intentarlo. */
+  var huboToque = false;
+  document.addEventListener('pointerdown', function (ev) {
+    if (ev.isTrusted) huboToque = true;
+  }, true);
+
   function vibrar(ms) {
-    if (navigator.vibrate) {
-      try { navigator.vibrate(ms || 12); } catch (e) { /* sin vibración */ }
-    }
+    if (!huboToque || !navigator.vibrate) return;
+    try { navigator.vibrate(ms || 12); } catch (e) { /* sin vibración */ }
   }
 
   /* ---------------------------------------------------------------- cortina */
