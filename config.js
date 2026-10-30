@@ -124,14 +124,20 @@ window.EXPERIENCIA_CONFIG = {
     titulo: "Blending Game",
     bajada: "Una experiencia para descubrir, experimentar, mezclar y crear nuestro propio vino.",
 
-    bodega:    "",   // ej: "Bodega Ruca Malen"
-    fecha:     "",   // ej: "Sábado 15 de noviembre"
-    hora:      "",   // ej: "11:00 h"
-    ubicacion: "",   // ej: "Luján de Cuyo, Mendoza"
+    bodega:    "Finca Sophenia",
+    fecha:     "Viernes 20",
+    hora:      "15:30 h",
+    ubicacion: "Ruta 89, Km 12.5 · Gualtallary, Tupungato, Mendoza",
 
-    // Foto de la bodega. Guardala en experiencia/assets/ y escribí el nombre acá.
-    // ej: "assets/bodega.jpg". Si no hay foto, se muestra un marco elegante.
-    foto: "",
+    // Foto de la bodega. Guardala en assets/ y escribí el nombre acá.
+    // ej: "assets/bodega.jpg". Si no hay foto, se dibuja una ilustración.
+    foto: "assets/bodega.jpg",
+
+    // Qué parte de la foto se ve, si no entra entera en el marco.
+    // El primer valor es horizontal y el segundo vertical: 50% es el centro,
+    // más chico sube el recorte y más grande lo baja.
+    fotoPosicion: "center 60%",
+
     fotoCredito: "",
 
     nota: "Guardá esta invitación. La vas a necesitar.",

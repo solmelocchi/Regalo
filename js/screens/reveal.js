@@ -133,7 +133,8 @@
     var foto = tieneFoto
       ? html`<div class="invite__photo">
                <img src="${c.foto}" alt="${c.bodega ? 'Foto de ' + c.bodega : 'La bodega'}"
-                    id="invite-img" loading="lazy">
+                    id="invite-img" loading="lazy"
+                    style="${c.fotoPosicion ? 'object-position:' + c.fotoPosicion : ''}">
              </div>`
       : html`<div class="invite__photo invite__photo--empty">${raw(VINEDO)}</div>`;
 
