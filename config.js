@@ -131,12 +131,12 @@ window.EXPERIENCIA_CONFIG = {
 
     // Foto de la bodega. Guardala en assets/ y escribí el nombre acá.
     // ej: "assets/bodega.jpg". Si no hay foto, se dibuja una ilustración.
-    foto: "assets/bodega.jpg",
+    foto: "assets/bodega.webp",
 
     // Qué parte de la foto se ve, si no entra entera en el marco.
     // El primer valor es horizontal y el segundo vertical: 50% es el centro,
     // más chico sube el recorte y más grande lo baja.
-    fotoPosicion: "center 60%",
+    fotoPosicion: "center 50%",
 
     fotoCredito: "",
 
