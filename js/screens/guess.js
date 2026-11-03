@@ -44,7 +44,6 @@
       var juegos = c.juegos || [];
       var total = juegos.length;
       var indice = 0;
-      var dichas = [];
       var slot = dom.qs('#guess-slot', root);
 
       function pintarPips() {
@@ -55,8 +54,6 @@
       function siguiente() {
         indice++;
         if (indice >= total) {
-          BX.state.set({ dijo: dichas });
-
           if (c.cierre) {
             setTimeout(function () {
               slot.innerHTML = html`
@@ -68,15 +65,14 @@
               BX.fx.asegurarVisible(dom.qs('#guess-revelar', slot));
 
               dom.qs('#guess-revelar', slot).addEventListener('click', function () {
-                // Hace todo el gesto de una revelación, y después no revela nada.
                 BX.audio.sfx('descorche');
                 BX.fx.flash();
                 BX.fx.vibrar(20);
-                BX.router.ir('verdad');
+                BX.router.ir('segundo');
               });
             }, 1000);
           } else {
-            setTimeout(function () { BX.router.ir('verdad'); }, 1200);
+            setTimeout(function () { BX.router.ir('segundo'); }, 1200);
           }
         } else {
           var actual = dom.qs('.guess', slot);
@@ -121,7 +117,6 @@
           cont.setAttribute('data-settled', 'true');
 
           var acerto = btn.getAttribute('data-ok') === '1';
-          dichas.push(btn.getAttribute('data-texto'));
 
           dom.qsa('.option', cont).forEach(function (o) {
             if (o === btn) {
@@ -180,7 +175,6 @@
           cont.setAttribute('data-settled', 'true');
 
           var acerto = carta.getAttribute('data-ok') === '1';
-          dichas.push(carta.getAttribute('data-texto'));
 
           BX.audio.sfx('tap');
           BX.fx.vibrar(14);
@@ -257,9 +251,6 @@
             else b.setAttribute('data-state', 'muted');
           });
 
-          dichas.push(dom.qs('.vf__texto', fila).textContent + ': ' +
-                      (eligio === 'v' ? 'verdadero' : 'falso'));
-
           BX.audio.sfx(acerto ? 'bien' : 'mal');
           BX.fx.vibrar(12);
 
@@ -296,57 +287,62 @@
         (MOTORES[j.tipo] || juegoOpciones)(j);
       }
 
-      BX.state.set({ dijo: [] });
       pintar();
     }
   });
 
-  /* ---------------------------------------------------------- el vuelto --- */
+  /* ------------------------------------------------- el segundo regalo --- */
+  /* Misma tarjeta que la invitación del primer regalo, para que se sientan
+     un par. Lo que dice es otra cosa. */
   BX.router.registrar({
-    id: 'verdad',
-    clase: 'vault',
+    id: 'segundo',
+    clase: 'invite',
 
     render: function () {
-      var c = cfgVerdad();
-      var dichas = BX.state.data.dijo || [];
+      var c = window.EXPERIENCIA_CONFIG.segundo;
 
-      var lineas = (c.lineas || []).map(function (t, i) {
-        return html`<p class="anim ${raw('d' + (i + 2))}">${t}</p>`;
+      var filas = (c.filas || []).map(function (f) {
+        return html`
+          <div class="invite__row">
+            <span class="invite__key">${f.clave}</span>
+            <span class="invite__val">${f.valor}</span>
+          </div>`;
       }).join('');
-
-      var lista = dichas.length
-        ? html`
-            <p class="label anim anim--fade d5">${c.listaTitulo}</p>
-            <div class="leaks anim anim--soft d6">
-              ${raw(dichas.map(function (t) {
-                return html`<div class="leak leak--tachado"><span class="leak__dato">${t}</span></div>`;
-              }).join(''))}
-            </div>`
-        : '';
 
       return html`
         <div class="screen__head anim d1">
-          <p class="label">${c.kicker}</p>
+          <p class="reveal__kicker">${c.kicker}</p>
           <hr class="rule rule--diamond">
         </div>
 
-        <div class="vault__lines">${raw(lineas)}</div>
+        <article class="invite anim anim--scale d3">
+          <div class="invite__inner">
+            <span class="invite__seal" aria-hidden="true"><span>II</span></span>
+            <h2 class="invite__title acc-text">${c.titulo}</h2>
+            <p class="invite__bajada">${c.bajada}</p>
 
-        ${raw(lista)}
+            <div class="invite__data">${raw(filas)}</div>
 
-        <p class="vault__cierre acc-text anim d7">${c.cierre}</p>
+            ${raw(c.nota ? '<p class="invite__nota">' + dom.esc(c.nota) + '</p>' : '')}
+          </div>
+        </article>
 
-        <button class="btn btn--primary anim anim--scale d8" id="verdad-next" type="button">
-          ${c.boton}
+        ${raw(c.cierre
+          ? '<p class="invite-screen__note anim anim--fade d5">' + dom.esc(c.cierre) + '</p>'
+          : '')}
+
+        <button class="btn ${raw(BX.state.data.terminado ? 'btn--ghost' : 'btn--primary')} anim anim--scale d6"
+                id="segundo-next" type="button">
+          ${BX.state.data.terminado ? 'Volver' : c.boton}
         </button>
       `;
     },
 
     montar: function (root) {
-      BX.audio.sfx('denegado');
-      BX.fx.vibrar([25, 60, 25]);
+      BX.audio.sfx('brillo');
+      BX.fx.flash();
 
-      dom.qs('#verdad-next', root).addEventListener('click', function () {
+      dom.qs('#segundo-next', root).addEventListener('click', function () {
         BX.state.set({ boveda: true });
         BX.router.ir('final');
       });

@@ -21,7 +21,7 @@
     invitacion: { label: 'La invitación',                  progreso: 88,  hud: true },
     boveda:     { label: 'Segundo regalo',                 progreso: 90,  hud: true },
     adivinanza: { label: 'Tres intentos',                  progreso: 93,  hud: true },
-    verdad:     { label: 'Segundo regalo',                 progreso: 98,  hud: true },
+    segundo:    { label: 'Segundo regalo',                 progreso: 98,  hud: true },
     final:      { label: 'Fin de la experiencia',          progreso: 100, hud: true }
   };
 

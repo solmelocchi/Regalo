@@ -178,29 +178,29 @@ window.EXPERIENCIA_CONFIG = {
       {
         tipo: "opciones",
         etiqueta: "Primer intento",
-        pregunta: "¿Con qué arranca?",
+        pregunta: "¿Cuánto creés que vamos a estar?",
         opciones: [
-          "Una cena en un restaurante",
-          "Una noche tranquila en casa",
-          "Un recital",
-          "Un asado con amigos"
+          "Una tarde",
+          "Dos días",
+          "Una semana",
+          "Un mes entero"
         ],
-        correcta: 0,
-        acierto: "Correcto.",
-        error: "No. Era esta otra."
+        correcta: 1,
+        acierto: "Dos días. Ni uno más.",
+        error: "No. Son dos días."
       },
       {
         tipo: "cartas",
         etiqueta: "Segundo intento",
-        pregunta: "¿Y dónde dormimos?",
+        pregunta: "¿Qué vas a tener que llevar?",
         cartas: [
-          "En Potrerillos",
-          "Acá nomás",
-          "Un hotel en el centro",
-          "Una cabaña en la montaña"
+          "Ganas de tomar sol",
+          "Botas y abrigo",
+          "Algo elegante",
+          "Un libro y nada más"
         ],
         correcta: 0,
-        acierto: "Correcto otra vez. Me estás asustando.",
+        acierto: "Ganas de tomar sol. Nada más que eso.",
         error: "Frío. Era esta."
       },
       {
@@ -208,60 +208,54 @@ window.EXPERIENCIA_CONFIG = {
         etiqueta: "Tercer intento",
         pregunta: "Última. Verdadero o falso.",
         afirmaciones: [
-          { texto: "Vamos en auto",            respuesta: true },
-          { texto: "Hay que madrugar",         respuesta: false },
-          { texto: "Con llevar poca ropa alcanza", respuesta: true }
+          { texto: "Está lejos",      respuesta: false },
+          { texto: "Vamos en auto",   respuesta: true },
+          { texto: "Hay pileta",      respuesta: true }
         ],
         acierto: "Tres de tres.",
-        cierre: "Impresionante.",
+        cierre: "Ya sabés casi todo.",
         instruccion: "Respondé las tres."
       }
     ],
 
-    // Lo último que ve antes de destapar la sorpresa.
-    cierre: "Ya tenés todas las pistas necesarias para darte cuenta.",
-    botonRevelar: "Ver segundo regalo",
-
     boton: "Terminar"
   },
 
-  /* --- EL VUELTO ---------------------------------------------------------
-     Lo que ve después de los tres juegos.
+  /* --- EL SEGUNDO REGALO -------------------------------------------------
+     Lo que ve al tocar "Ver segundo regalo".
      ----------------------------------------------------------------------- */
-  verdad: {
-    // Hace eco del "Primer regalo desbloqueado", y después no hay nada.
+  segundo: {
     kicker: "Segundo regalo desbloqueado",
-    lineas: [
-      "Nada de lo que acabás de ver y adivinar es verdad.",
-      "Ni una sola.",
-      "No adivinaste absolutamente nada."
+    titulo: "Dos días al sol",
+    bajada: "Eso es todo lo que te voy a decir.",
+
+    filas: [
+      { clave: "Cuánto",    valor: "Dos días" },
+      { clave: "Dónde",     valor: "A una hora de Mendoza" },
+      { clave: "Te busco",  valor: "Sábado, 13:00 h" },
+      { clave: "Llevá",     valor: "Ganas de tomar sol" }
     ],
-    listaTitulo: "Lo que dijiste",
-    cierre: "Esperá hasta el 26 para saber…",
-    boton: "Me rindo"
+
+    // Aparece abajo de todo, como un pendiente más del plan.
+    nota: "El jueves a la tarde hacemos las compras. Dejate la tarde libre.",
+
+    cierre: "El resto lo vas a ver cuando lleguemos.",
+    boton: "Dale"
   },
 
   /* --- PANTALLA FINAL ---------------------------------------------------- */
   final: {
     kicker: "Fin de la experiencia",
     titulo: "Feliz cumpleaños",
-    texto: "Un regalo ya lo sabés. El otro va a tener que esperar.",
-    botonInvitacion: "Volver a ver la invitación",
+    texto: "Ya sabés los dos. Ahora solo falta que lleguen.",
+    botonInvitacion: "Ver la invitación",
+    botonSegundo: "Ver el segundo regalo",
     botonReiniciar: "Vivirla de nuevo",
     firma: "",       // ej: "Con amor, Sol"
 
-    /* --- NOTA AL PIE ------------------------------------------------------
-       Un recordatorio suelto al final de todo.
-       Otras versiones que podés usar en vez de esta:
-         "El jueves te paso a buscar a las 17:00. Tengo que retirar algo que
-          encargué y sola no lo puedo cargar. Dejate la tarde libre."
-         "El jueves te paso a buscar a las 17:00. Tengo un trámite que cierra
-          temprano y quiero que vengas conmigo. Después te invito a comer."
-         "El jueves te paso a buscar a las 17:00. Necesito tu ayuda con algo
-          que ya te voy a explicar. Confiá."
-       Dejalo en "" si preferís decírselo en persona.
-       --------------------------------------------------------------------- */
-    pd: "P.D. El jueves te paso a buscar a las 17:00. Necesito que me acompañes a hacer algo y no me da el tiempo sola. Dejate la tarde libre."
+    // Nota suelta al final. El plan del jueves ya está en la tarjeta del
+    // segundo regalo, así que acá podés poner lo que quieras, o nada.
+    pd: ""
   },
 
   /* --- AJUSTES ----------------------------------------------------------- */

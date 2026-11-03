@@ -8,7 +8,7 @@
 
   var PANTALLAS_VALIDAS = [
     'intro', 'sentidos', 'puente', 'enigma', 'palabra',
-    'revelacion', 'invitacion', 'boveda', 'adivinanza', 'verdad', 'final'
+    'revelacion', 'invitacion', 'boveda', 'adivinanza', 'segundo', 'final'
   ];
 
   /* ------------------------------------------------------- botón de sonido */

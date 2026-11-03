@@ -15,7 +15,6 @@
       palabra: false,
       invitacion: false,
       boveda: false,
-      dijo: [],           // lo que respondió en los tres intentos
       terminado: false,
       sonido: null        // null = todavía no eligió; toma el valor del config
     };

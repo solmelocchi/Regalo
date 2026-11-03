@@ -31,11 +31,14 @@
 
         <div class="btn-row anim anim--scale d6">
           <button class="btn btn--primary" id="final-invite" type="button">${c.botonInvitacion}</button>
+          <button class="btn btn--primary" id="final-segundo" type="button">${c.botonSegundo}</button>
+        </div>
+        <div class="btn-row anim anim--fade d7">
           <button class="btn btn--ghost" id="final-restart" type="button">${c.botonReiniciar}</button>
         </div>
 
-        ${raw(c.firma ? '<p class="final__firma anim anim--fade d7">' + dom.esc(c.firma) + '</p>' : '')}
-        ${raw(c.pd ? '<p class="final__pd anim anim--fade d8">' + dom.esc(c.pd) + '</p>' : '')}
+        ${raw(c.firma ? '<p class="final__firma anim anim--fade d8">' + dom.esc(c.firma) + '</p>' : '')}
+        ${raw(c.pd ? '<p class="final__pd anim anim--fade d9">' + dom.esc(c.pd) + '</p>' : '')}
       `;
     },
 
@@ -46,6 +49,10 @@
 
       dom.qs('#final-invite', root).addEventListener('click', function () {
         BX.router.ir('invitacion');
+      });
+
+      dom.qs('#final-segundo', root).addEventListener('click', function () {
+        BX.router.ir('segundo');
       });
 
       var reiniciar = dom.qs('#final-restart', root);
